@@ -1,0 +1,31 @@
+{
+  "model_name": "microsoft/DialoGPT-medium",
+  "mode": "fc",
+  "description": "BFCL submission with native function-calling capabilities",
+  "version": "1.0.0",
+  "author": "BFCL Submission",
+  "license": "Apache-2.0",
+  "base_model": "microsoft/DialoGPT-medium",
+  "base_checkpoint": "microsoft/DialoGPT-medium",
+  "parameter_count": 345000000,
+  "fine_tuned": false,
+  "capabilities": [
+    "function_calling",
+    "web_search",
+    "memory_management",
+    "mathematical_calculation",
+    "weather_information"
+  ],
+  "evaluation_settings": {
+    "max_length": 512,
+    "temperature": 0.7,
+    "device": "auto"
+  },
+  "bfcl_compliance": {
+    "handler_interface": true,
+    "apache_license": true,
+    "mode_declaration": "fc",
+    "base_checkpoint_disclosed": true,
+    "parameter_count_disclosed": true
+  }
+}
