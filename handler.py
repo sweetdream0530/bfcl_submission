@@ -583,3 +583,20 @@ if __name__ == "__main__":
         print("Memory retrieval result:", result)
     
     asyncio.run(test_handler())
+
+# Wrapper class to fix BFCL evaluation system import error
+class BitAgentHandler(BFCLHandler):
+    """
+    Wrapper class to make BFCLHandler compatible with BFCL evaluation system
+    that expects a BitAgentHandler class.
+    
+    This is a compatibility layer to resolve the import error:
+    ImportError: cannot import name 'BitAgentHandler' from 'bfcl_eval.model_handler.local_inference.bitagent'
+    """
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        logger.info("BitAgentHandler wrapper initialized - delegating to BFCLHandler")
+    
+    # All methods are inherited from BFCLHandler
+    # The evaluation system will use the same interface
