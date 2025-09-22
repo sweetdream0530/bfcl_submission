@@ -617,6 +617,21 @@ class BitAgentHandler:
         except Exception as e:
             logger.warning(f"Model initialization failed: {e}")
     
+    def get_model_info(self) -> dict:
+        """
+        Get information about the model.
+        This method is expected by the BFCL evaluation system.
+        """
+        return {
+            "model_name": "microsoft/DialoGPT-medium",
+            "model_type": "causal_language_model",
+            "device": self.device,
+            "parameters": "~345M",
+            "license": "Apache 2.0",
+            "mode": "fc",
+            "initialized": self.model is not None and self.tokenizer is not None
+        }
+    
     async def process_message(self, message: str) -> str:
         """
         Process a message and return a response.
